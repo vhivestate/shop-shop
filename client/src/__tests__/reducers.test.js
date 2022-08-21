@@ -1,4 +1,6 @@
 import { reducer } from '../utils/reducers';
+import { useReducer } from 'react';
+
 
 // import our actions
 import {
@@ -43,3 +45,7 @@ import {
     expect(newState.currentCategory).toBe('2');
     expect(initialState.currentCategory).toBe('1');
   });
+
+  export function useProductReducer(initialState) {
+    return useReducer(reducer, initialState);
+  }
