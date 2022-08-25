@@ -18,7 +18,10 @@ function ProductItem(item) {
   const { cart } = state
 
   const addToCart = () => {
-    const itemInCart = cart.find((cartItem) => cartItem._id === _id)
+    // find the cart item with the matching id
+    const itemInCart = cart.find((cartItem) => cartItem._id === _id);
+  
+    // if there was a match, call UPDATE with a new purchase quantity
     if (itemInCart) {
       dispatch({
         type: UPDATE_CART_QUANTITY,
@@ -31,7 +34,7 @@ function ProductItem(item) {
         product: { ...item, purchaseQuantity: 1 }
       });
     }
-  }
+  };
 
   return (
     <div className="card px-1 py-1">
